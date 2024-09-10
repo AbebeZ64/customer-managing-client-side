@@ -17,8 +17,6 @@ function showNotification(message, type = "success") {
     }, 3000); 
 }
 
-// showNotification("test", notification, "warning");
-        showNotification("Failed to update customer name.", "danger");
 
 
 function displayForm(formId) {
