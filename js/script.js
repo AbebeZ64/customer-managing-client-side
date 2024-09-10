@@ -52,7 +52,7 @@ document.getElementById("insert-customer-form").addEventListener("submit", funct
         company: formData.get("company"),
     };
 
-    fetch("http://localhost:2025/insert-customer-data", {
+    fetch("https://customer-managing-server-side-1.onrender.com/insert-customer-data", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -69,7 +69,7 @@ document.getElementById("insert-customer-form").addEventListener("submit", funct
 });
 
 function fetchCustomers() {
-    fetch("http://localhost:2025/customers")
+    fetch("https://customer-managing-server-side-1.onrender.com/customers")
         .then((response) => response.json())
         .then((data) => {
             const customerList = document.getElementById("customer-list");
@@ -92,7 +92,7 @@ function fetchCustomers() {
 }
 
 function fetchCustomerById(id) {
-    fetch(`http://localhost:2025/customers/${id}`)
+    fetch(`https://customer-managing-server-side-1.onrender.com/customers/${id}`)
         .then((response) => response.json())
         .then((data) => {
             document.querySelector("#edit-form input[name=id]").value = data.id;
@@ -113,7 +113,7 @@ function editCustomer(e) {
     const newAddress = document.querySelector("#edit-form input[name=editAdress]").value;
     const newCompany = document.querySelector("#edit-form input[name=editCompany]").value;
 
-    fetch("http://localhost:2025/update", {
+    fetch("https://customer-managing-server-side-1.onrender.com/update", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, newName, newAddress, newCompany }),
@@ -131,7 +131,7 @@ function editCustomer(e) {
 
 function deleteUserById(id) {
     if (confirm("Are you sure you want to delete this customer?")) {
-        fetch("http://localhost:2025/remove-user", {
+        fetch("https://customer-managing-server-side-1.onrender.com/remove-user", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id }),
